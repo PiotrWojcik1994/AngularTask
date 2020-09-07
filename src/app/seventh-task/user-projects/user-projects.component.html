@@ -1,0 +1,32 @@
+<div>
+  <label for="user">Wprowadz nazwę użytkownika </label>
+  <input [(ngModel)]="user" id="user"> <br/>
+  <button (click)="getData()">Pobierz dane</button>
+
+  <table>
+    <thead *ngIf="!wrongUserName && data != null && data.length != 0">
+      <tr>
+        <th></th>
+        <th>Nazwa projektu</th>
+        <th>Opis projektu</th>
+        <th>Link do Githuba</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of data; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{project.name}}</td>
+        <td>{{project.description}}</td>
+        <td><a [href]="project.html_url" target="_blank">{{project.html_url}}</a></td>
+      </tr>
+
+      <tr *ngIf="data!= null && data.length == 0">
+        <td>Brak projektów dla użytkownika {{user}}</td>
+      </tr>
+
+      <tr *ngIf="wrongUserName">
+        <td>Zła nazwa użytkownika</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

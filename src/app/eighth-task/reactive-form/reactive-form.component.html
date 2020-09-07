@@ -1,0 +1,35 @@
+<div>
+  <form [formGroup]="userForm">
+    <label for="name">Imię </label>
+    <input id="name" formControlName="name"><br/>
+
+    <label for="sureName">Nazwisko </label>
+    <input id="sureName" formControlName="sureName"><br/>
+
+    <label for="age">Wiek </label>
+    <input id="age" formControlName="age" type="number"><br/>
+
+    <button type="submit" (click)="addUser()" [disabled]="userForm.invalid">Dodaj</button>
+  </form>
+
+  <table *ngIf="userList.length > 0">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Wiek</th>
+        <th>Akcja</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.sureName}}</td>
+        <td>{{user.age}}</td>
+        <td><button (click)="removeUser(i)">Usuń</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

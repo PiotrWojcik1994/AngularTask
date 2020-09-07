@@ -1,0 +1,18 @@
+<div>
+  <div>
+    <input [(ngModel)]="event" type="radio" id="fire" name="fire" value="fire">
+    <label for="fire">Pożar</label>
+
+    <input [(ngModel)]="event" type="radio" id="carAccident" name="carAccident" value="carAccident">
+    <label for="carAccident">Wypadek samochodowy</label>
+
+    <input [(ngModel)]="event" type="radio" id="beating" name="beating" value="beating">
+    <label for="beating">Pobicie</label>
+  </div>
+
+  <div>
+    <button (click)="callPolice()">Wezwij policje</button>
+    <button (click)="callFireBrigade()">Wezwij straż</button>
+    <button (click)="callEmergencyMedical()">Wezwij karetkę</button>
+  </div>
+</div>
